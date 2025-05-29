@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Realgrün Layout</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Noto Sans', sans-serif;
+      background-color: #000000;
+    }
+
+    #wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    header.header {
+      text-align: center;
+      transition: top 0.3s ease;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      z-index: 9;
+      font-size: 1rem;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid #FF5A00;
+      height: 43px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FF5A00;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 43px);
+    }
+
+    .left-panel {
+      width: 40%;
+      background-color: #000000;
+      padding: 20px;
+      overflow-y: scroll;
+      scrollbar-width: none;
+    }
+
+    .left-panel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .right-panel {
+      width: 60%;
+      background-color: #000000;
+      padding: 20px;
+      overflow-y: scroll;
+    }
+
+    .text-content p {
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.6;
+      white-space: pre;
+      color: #FFFFFF;
+    }
+
+    .text-content .highlight {
+      color: orange;
+      font-weight: bold;
+    }
+    .category-title {
+     font-size: 12px;
+     font-weight: lighter;
+     margin-bottom: 10px;
+     color: #FFFFFF;
+    }
+    .image-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  max-height: calc(100vh - 43px); 
+  overflow-y: auto;
+  padding-right: 5px; 
+  scrollbar-width: thin;
+  scrollbar-width: none; !important;         
+  -ms-overflow-style: none;       
+}
+
+.image-column::-webkit-scrollbar {
+  display: none;                  
+}
+
+.image-column::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+    .image-grid {
+      display: flex;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+    }
+
+    .image-grid::before,
+    .image-grid::after,
+    .image-grid .grid-divider {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .image-grid::before {
+      left: 25%;
+    }
+    .image-grid::after {
+      left: 75%;
+    }
+    .grid-divider {
+      left: 50%;
+    }
+
+    .image-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .image-item p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <header class="header">
+      ✺대한근대✺
+    </header>
+    <div class="container">
+      <div class="left-panel">
+        <div class="text-content">
+          <p>대한근대</p>
+          <p>대구 국제적 찌개</p>
+          <p>안녕하세요</p>
+          <p>      대한제국</p>
+          <p>           구본신참</p>
+          <p>                 대한국 국제</p>
+          <p>                       전차 개통</p>
+          <p>                              지계 발급</p>
+          <p class="highlight">                대한근대</p>
+          <p>...</p>
+          <p>Dummy line 1</p>
+          <p>Dummy line 2</p>
+          <p>Dummy line 3</p>
+          <p>Dummy line 4</p>
+          <p>Dummy line 5</p>
+          <p>Dummy line 6</p>
+          <p>Dummy line 7</p>
+          <p>Dummy line 8</p>
+          <p>Dummy line 9</p>
+          <p>Dummy line 10</p>
+          <p>Dummy line 11</p>
+          <p>Dummy line 12</p>
+          <p>Dummy line 13</p>
+          <p>Dummy line 14</p>
+          <p>Dummy line 15</p>
+          <p>Dummy line 16</p>
+          <p>Dummy line 17</p>
+          <p>Dummy line 18</p>
+          <p>Dummy line 19</p>
+          <p>Dummy line 20</p>
+        </div>
+      </div>
+      <div class="right-panel">
+        <div class="image-grid">
+          <div class="grid-divider"></div>
+          <div class="image-column">
+          <h3 class="category-title">사진</h3>
+          <div class="image-item"><img src="dhgd.p1.jpg" alt="Projektname 1"><p>Projektname 1</p></div>
+          <div class="image-item"><img src="dhgd.p2.jpg" alt="Projektname 2"><p>Projektname 2</p></div>
+          <div class="image-item"><img src="dhgd.p3.jpg" alt="Projektname 3"><p>Projektname 3</p></div>
+          <div class="image-item"><img src="dhgd.p4.jpg" alt="Projektname 1"><p>Projektname 4</p></div>
+          <div class="image-item"><img src="dhgd.p5.jpg" alt="Projektname 2"><p>
+          Projektname 5</p></div>
+          </div>
+
+       <div class="image-column">
+         <h3 class="category-title">문학</h3>
+          <div class="image-item"><img src="dhgd.y1.jpg" alt="Projektname 6"><p>Projektname 6</p></div>
+          <div class="image-item"><img src="dhgd.y2.jpg" alt="Projektname 7"><p>Projektname 7</p></div>
+          <div class="image-item"><img src="dhgd.y3.jpg" alt="Projektname 8"><p>Projektname 8</p></div>
+          </div>
+      <div class="image-column">
+         <h3 class="category-title">공간</h3>
+          <div class="image-item"><img src="dhgd.m1.jpg" alt="Projektname 6"><p>Projektname 9</p></div>
+          <div class="image-item"><img src="dhgd.m2.jpg" alt="Projektname 7"><p>Projektname 10</p></div>
+          <div class="image-item"><img src="dhgd.m3.jpg" alt="Projektname 8"><p>Projektname 11</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Header and Main Layout</title>
+    <title>Header and Main Layout</title>
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+        }
+        #wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        .header#header {
+            position: sticky;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            border-bottom: 0.75px solid black;
+            font-size: 1rem;
+            background-color: #000000;
+            height: 80px;
+            vertical-align: middle;
+        }
+
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #FF5A00;
+        }
+        .title span:first-child {
+            font-size: 4rem; 
+            font-weight: 900;
+        }
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 15px;
+            gap: 35px;
+            color: white;
+        }
+        .menu a, .menu button {
+            font-size: 1rem;
+            text-decoration: none;
+            color: #000;
+        }
+        .menu input.search-input {
+            background-color: #FF5A00;
+            color: #fff;
+            border: none;
+            padding: 0px 1px;
+            border-radius: 30px;
+            width: 200px;
+            height: 40px;
+            text-align: center;
+            font-size: 1rem;
+            outline: none;
+        }
+        .menu input.search-input:focus {
+        }
+        .search-floating {
+  position: fixed;
+  top: 5px;
+  right: 30px;
+  width: 5px;
+  height: 35px;
+  background-color: #FF5A00;
+  border-radius: 50%;
+  z-index: 999;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0 15px;
+  outline: none;
+  text-align: center;
+  transition: none;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0; 
+  pointer-events: none; 
+}
+
+.search-floating.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.search-floating.expanded {
+  width: 200px;
+  border-radius: 20px;
+}
+.search-floating::placeholder {
+  color: transparent;
+}
+
+.search-floating.expanded::placeholder {
+  color: white;
+}
+        #container {
+            margin-top: 10px;
+        }
+        .header.header {
+            text-align: center;
+            transition: top 0.3s ease;
+            position: sticky;
+            grid-template-columns: auto 1fr auto auto;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            padding: 1px;
+            top: 0;
+            width: 100%;
+            z-index: 6;
+            font-size: 1rem;
+            background-color: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(10px);               
+            -webkit-backdrop-filter: blur(10px);       
+            border-bottom: 1px solid rgba(255, 0, 123, 0.5); 
+            height: 43px;
+            vertical-align: middle;
+            border-bottom: 1px solid #FF5A00;
+            font-weight: lighter;
+        }
+          .intro-section {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+  padding: 30px 15px;
+  background-color: #000000;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+    .intro-section img {
+      max-width: 30%;
+      height: auto;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+    }
+        main#content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            grid-gap: 15px;
+            padding: 15px;
+            padding-bottom: calc(55px + 15px);
+            background-color: black; !important;
+        }
+
+
+        h1 {
+            display: block;
+            font-size: 1em;
+            margin-block-start: 0.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: light;
+            unicode-bidi: isolate;
+            
+        }
+        .item {
+            background-color: #FF5A00;
+            padding: 15px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            font-weight: 900;
+            font-size: clamp(3.44rem, 17.19vw, 10.31rem);
+            overflow: hidden;
+            transition: height 0.4s ease;
+            }
+            .item:hover {
+            height: 520px; 
+            }
+        .item p {
+            color: #000000;
+            margin: 0;        
+            padding: 0;       
+            line-height: 1;
+            text-align: center;
+            flex-shrink: 0; 
+            transition: filter 0.5s ease;
+            }
+            .item:hover p {
+            filter: blur(8px);             
+            }
+        .preview {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #000000;
+            }
+
+        .item:hover .preview {
+            opacity: 1;
+            }
+        .item-image {
+            width: 400px;          
+            max-height: none;       
+            height: 300px;          
+            object-fit: cover;   
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: block;
+            pointer-events: none;
+            margin-top: 30px;
+            }
+        .item:hover .item-image {
+           opacity: 1; 
+            }
+            .alt-footer {
+  background-color: #000;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'D2Coding', monospace;
+}
+
+.footer-icons img {
+  width: 30px;       
+  height: 30px;
+}
+
+.footer-tagline {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.footer-nav {
+  margin: 25px 0;
+  font-size: 0.95rem;
+}
+
+.footer-nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-credit {
+  color: #ccc;
+  font-size: 0.85rem;
+}
+
+.footer-credit .highlight {
+  color: #FF5A00;
+}
+
+.footer-marquee {
+  margin-top: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-text 20s linear infinite;
+}
+
+@keyframes scroll-text {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <div class="title">
+                <span>🟔歷史茂識</span>
+            </div>
+            <div class="menu">
+                <span>대한 근대사 아카이브 <br> [無 를 지우고 茂를 하다]</span>
+                <input type="text" placeholder="Search..." class="search-input">
+                <a href="#">선택</a>
+            </div>
+        </header>
+
+        <div id="container">
+          <div id="trigger-marker" style="height: 1px;"></div>
+            <header class="header" id="keyword-header">
+            <input type="text" placeholder="Search..." class="search-floating" id="floatingSearch">
+            <h1 class="entry-title">✺열쇳말✺</h1>
+            <div class="archive-meta"></div>
+        </header>
+            <section class="intro-section">
+      <img src="dh.png" alt="Intro Image">
+      <p>대한의 역사에 대해서 알아야하며..어쩌구저쩌구 글 부분</br>
+      .</br>
+      .</br>
+      .</br>
+      .</br>
+      .</br>
+      </p>
+    </section>
+
+            <main id="content" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-gap: 15px; padding: 15px; padding-bottom: calc(55px + 15px);">
+              
+                  <a href="dhgd_index.html" style="text-decoration: none;">
+                  <div class="item">
+                    <p>대한근대</p>
+                    <img src="dhgd.png" alt="관련 이미지" class="item-image">
+                    <div class="preview">개항 이후 근대 국가로의 이행 과정</div>
+                  </div>
+                  </a>
+                <div class="item">
+                    <p>대한항일</p>
+                    <img src="dhhi.jpg" alt="관련 이미지" class="item-image">
+                    <div class="preview">의병 활동과 식민 저항 운동의 기록</div>
+                </div>
+                <div class="item">
+                    <p>대한전쟁</p>
+                    <img src="dhzz.jpg" alt="관련 이미지" class="item-image">
+                    <div class="preview">국권 회복을 위한 무력 투쟁사</div>
+                </div>
+                <div class="item">
+                    <p>대한민주</p>
+                    <img src="dhmj.jpg" alt="관련 이미지" class="item-image">
+                    <div class="preview">4·19, 5·18 등 민주주의 운동의 발자취</div>
+                </div>
+                <div class="item">
+                    <p>대한헌정</p>
+                    <img src="dhhb.jpg" alt="관련 이미지" class="item-image">
+                    <div class="preview">헌법 제정과 개헌의 흐름</div>
+                </div>
+                <div class="item">
+                    <p>대한경제</p>
+                    <img src="dhgj.jpg" alt="관련 이미지" class="item-image">
+                    <div class="preview">산업화와 개발 계획의 여정</div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <footer class="alt-footer">
+  <div class="footer-icons">
+    <img src="dh.png" alt="logo">
+  </div>
+
+  <div class="footer-tagline">
+    대한 역사의 핵심과 요약<br>
+    대한 아카이브
+  </div>
+
+  <div class="footer-nav">
+    <a href="#">소개</a>
+    <a href="#">이용약관</a>
+    <a href="#">자료제출</a>
+    <a href="#">문의하기</a>
+  </div>
+
+  <div class="footer-credit">
+    Created by <span class="highlight">Kimdom</span>. © 2025
+  </div>
+
+  <div class="footer-marquee">
+    <div class="marquee-content">
+      歷史茂識 ・ Daehan Archive 
+    </div>
+  </div>
+</footer>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("floatingSearch");
+  const items = document.querySelectorAll(".item");
+  const trigger = document.getElementById("trigger-marker");
+
+  let isExpanded = false;
+
+  searchInput.addEventListener("input", function () {
+    const keyword = this.value.trim().toLowerCase();
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(keyword) ? "flex" : "none";
+    });
+  });
+
+  searchInput.addEventListener("click", function (e) {
+    e.stopPropagation();
+    this.classList.toggle("expanded");
+    isExpanded = this.classList.contains("expanded");
+  });
+
+  document.addEventListener("click", function () {
+    if (isExpanded) {
+      searchInput.classList.remove("expanded");
+      isExpanded = false;
+    }
+  });
+
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        searchInput.classList.add("visible");
+      } else {
+        searchInput.classList.remove("visible");
+        searchInput.classList.remove("expanded");
+      }
+    },
+    {
+      root: null,
+      threshold: 0,
+    }
+  );
+
+  observer.observe(trigger);
+});
+</script>
+</script>
+</body>
+</html>
